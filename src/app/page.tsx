@@ -1,95 +1,39 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import img from "../../public/Frame 40.png";
+import Image from "next/image"
+import { CiSearch } from "react-icons/ci";
+import SideMenu from "@/components/custom/sideMenu/SideMenu";
+import QuizList from "@/components/custom/quizList/QuizList";
 
-export default function Home() {
+
+export default async function Home() {
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <>
+      <div className="container-flued p-3  bg-home  ">
+        <div className="row ">
+          <div className="col-md-2 p-4">
+            <SideMenu />
+          </div>
+          <div className="col-md-10 p-4">
+            <div className="row align-items-center gy-3 gx-3 mb-4">
+              <div className="col-md-9">
+                <div className="input-group align-items-center ">
+                  <span className="search-icon main-color border-0 px-3 pt-1 " ><CiSearch /></span>
+                  <input type="text" className="form-control search-shadow py-2  border-0" placeholder="Search Quiz" />
+                </div>
+              </div>
+              <div className="col-md-2 col-0">
+                <button className='btn text-white main-button py-2 w-100 fw-semibold rounded-4'>Start Quiz</button>
+              </div>
+              <div className="col-md-1  ">
+                <Image src={img} alt="main image" priority width={45} height={0} className="rounded-circle" />
+              </div>
+            </div>
+            {/* display subjects */}
+            <QuizList />
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   );
 }
