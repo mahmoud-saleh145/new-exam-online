@@ -39,8 +39,8 @@ export default async function MemberInformation() {
                 <div className="row align-items-center ">
 
                     {/* user image */}
-                    <div className="col-md-2 me-4">
-                        <Image src={img} alt="user img" sizes="100vw" style={{ width: '100%', height: 'auto', }} />
+                    <div className="col-md-2 me-4 mb-3">
+                        <Image priority src={img} alt="user img" sizes="100vw" style={{ width: '100%', height: 'auto', }} />
                     </div>
 
                     <div className="col-md-8">
@@ -49,24 +49,24 @@ export default async function MemberInformation() {
                         <div className="progress " role="progressbar" aria-label="Basic example" aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>
                             <div className="progress-bar w-25"  ></div>
                         </div>
-                        <div className="d-flex  mt-3 justify-content-between ">
-                            <div className="user-details  d-flex">
-                                <div className="fs-2 user-icons me-4"><AiFillFlag /></div>
-                                <div className="">
+                        <div className="d-flex mt-3 justify-content-between gap-md-4">
+                            <div className="d-flex flex-md-row flex-column align-items-center justify-content-center">
+                                <div className="fs-2 user-icons me-lg-4 "><AiFillFlag /></div>
+                                <div className="text-center text-md-start" >
                                     <p className="p-quiz mb-0 fs-3 fw-bold">22</p>
                                     <p>Quiz passed </p>
                                 </div>
                             </div>
-                            <div className="user-details  d-flex">
-                                <div className=" fs-2 user-icons me-4"><FaClock /></div>
-                                <div className="">
+                            <div className="d-flex flex-md-row flex-column align-items-center justify-content-center">
+                                <div className=" fs-2 user-icons me-lg-4 "><FaClock /></div>
+                                <div className="text-center text-md-start" >
                                     <p className="p-quiz mb-0 fs-3 fw-bold">13 min</p>
                                     <p>fastest time</p>
                                 </div>
                             </div>
-                            <div className="user-details  d-flex">
-                                <div className="fs-2 user-icons me-4"><FaCircleCheck /></div>
-                                <div className=" ">
+                            <div className="d-flex flex-md-row flex-column align-items-center justify-content-center">
+                                <div className="fs-2 user-icons me-lg-4 "><FaCircleCheck /></div>
+                                <div className="text-center text-md-start" >
                                     <p className="p-quiz mb-0 fs-3 fw-bold">200</p>
                                     <p>correct answer</p>
                                 </div>

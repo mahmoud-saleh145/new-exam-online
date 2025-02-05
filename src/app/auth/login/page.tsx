@@ -12,13 +12,10 @@ import { useState } from 'react';
 import LoadingPage from '@/components/common/LoadingPage';
 
 
-
-
-
 export default function login() {
 
 
-    let [show, setShow] = useState(false)
+    const [show, setShow] = useState(false)
     const [error, setError] = useState('')
     const [loading, isLoading] = useState(false)
 

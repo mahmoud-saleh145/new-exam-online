@@ -7,6 +7,10 @@
    color: white !important;
  }
 
+ .main-background {
+   background: #4461F2;
+ }
+
  .mainframe {
    background-color: #F0F4FC;
    border-radius: 0px 100px 100px 0px;
@@ -118,17 +122,19 @@
 
 
  .search-shadow {
-
    border-radius: 0px 15px 15px 0px !important;
-
-
  }
 
- .search-icon {
+ .navbar-toggler:focus {
+   box-shadow: none !important;
+ }
 
-   height: 36px;
+ @media (min-width: 576px) {
 
-
+   .container,
+   .container-sm {
+     max-width: 100% !important;
+   }
  }
 
  .input-group {

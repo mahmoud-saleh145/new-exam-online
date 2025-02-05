@@ -7,7 +7,7 @@ export default async function QuizList() {
         <>
             <section>
                 <MemberInformation />
-                <div className=" bg-white p-3 rounded-4 quizes-shadow">
+                <div className=" bg-white p-3 rounded-4 quizes-shadow overflow-hidden">
                     <h6 className="main-color fs-4 fw-semibold mb-4">Quizes</h6>
                     <QuizCard />
                 </div>
