@@ -13,7 +13,7 @@ import VerifyCode from '@/components/custom/verifyCode/verifyCode';
 import LoadingPage from '@/components/common/LoadingPage';
 
 
-export default function forgetPassword() {
+export default function ForgetPassword() {
 
     const [data, setData] = useState('')
     const [emailVerify, setEmailVerify] = useState({})
