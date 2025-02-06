@@ -33,6 +33,7 @@ export default function VerifyCode(props: any) {
         })
         // const result = await res.json()
         isLoading(false)
+        return res
     }
 
     const validationSchema = yup.object({
@@ -84,17 +85,18 @@ export default function VerifyCode(props: any) {
 
                                 {/* resetCode input */}
                                 <div className="position-relative pb-4">
+                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                                     <input
                                         autoComplete="off"
                                         value={formik.values.resetCode}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        name='resetCode' type="text" className={`form-control input-shadow p-2  ${formik.touched.resetCode && formik.values.resetCode === '' || formik.errors.resetCode ? "border-danger" : " "}`} placeholder='Enter reset Code' ></input>
+                                        name='resetCode' type="text" className={` form-control input-shadow p-2  ${(formik.touched.resetCode && (formik.values.resetCode === '' || formik.errors.resetCode)) ? "border-danger" : ""} `} placeholder='Enter reset Code' ></input>
                                     {formik.errors.resetCode && formik.touched.resetCode && (<div className="alert alert-danger  py-0 position-absolute ">{formik.errors.resetCode}</div>)}
                                 </div>
 
                                 {/* resend the reset code */}
-                                <div className="d-flex justify-content-end ">
+                                <div className="d-flex justify-content-end">
                                     <div>Didn't receive a reset Code? <span onClick={() => { resendCode(email) }} className='main-color link-underline link-underline-opacity-0 mt-1 fw-semibold cursor-pointer '>Resend </span></div>
                                 </div>
 
