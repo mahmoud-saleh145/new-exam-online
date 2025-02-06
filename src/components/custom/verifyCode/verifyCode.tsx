@@ -11,29 +11,31 @@ import { JSON_HEADER } from '@/lib/constants/api.constants';
 import LoadingPage from '@/components/common/LoadingPage';
 import NewPassword from './../newPassword/NewPassword';
 
+interface EmailProps {
+    email: string
+}
 
-export default function VerifyCode(props: any) {
-
-    const email = props.email
-
+export default function VerifyCode({ email }: EmailProps) {
 
     const [data, setData] = useState('')
     const [loading, isLoading] = useState(false)
     const [error, setError] = useState('')
 
 
-    async function resendCode(email: any) {
+    async function resendCode() {
         isLoading(true)
         const res = await fetch('https://exam.elevateegy.com/api/v1/auth/forgotPassword', {
-            body: JSON.stringify(
-                email
-            ),
+            body: JSON.stringify({ email }),
             headers: { ...JSON_HEADER },
             method: 'POST'
         })
-        // const result = await res.json()
+        const result = await res.json()
+
+        if (result?.message !== 'success') {
+            isLoading(false)
+            setError(result.message || 'something went wrong, please try again')
+        }
         isLoading(false)
-        return res
     }
 
     const validationSchema = yup.object({
@@ -85,7 +87,6 @@ export default function VerifyCode(props: any) {
 
                                 {/* resetCode input */}
                                 <div className="position-relative pb-4">
-                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                                     <input
                                         autoComplete="off"
                                         value={formik.values.resetCode}
@@ -97,7 +98,7 @@ export default function VerifyCode(props: any) {
 
                                 {/* resend the reset code */}
                                 <div className="d-flex justify-content-end">
-                                    <div>Didn't receive a reset Code? <span onClick={() => { resendCode(email) }} className='main-color link-underline link-underline-opacity-0 mt-1 fw-semibold cursor-pointer '>Resend </span></div>
+                                    <div>Didn't receive a reset Code? <span onClick={resendCode} className='main-color link-underline link-underline-opacity-0 mt-1 fw-semibold cursor-pointer '>Resend </span></div>
                                 </div>
 
                                 <div className=" my-4">

@@ -16,7 +16,7 @@ import LoadingPage from '@/components/common/LoadingPage';
 export default function ForgetPassword() {
 
     const [data, setData] = useState('')
-    const [emailVerify, setEmailVerify] = useState({})
+    const [emailVerify, setEmailVerify] = useState('')
     const [loading, isLoading] = useState(false)
     const [error, setError] = useState('')
 
@@ -42,7 +42,7 @@ export default function ForgetPassword() {
             const result = await res.json()
             if (result?.message == 'success') {
                 setData(result.message)
-                setEmailVerify(values)
+                setEmailVerify(values.email)
                 isLoading(false)
             }
             console.log(result);
@@ -51,6 +51,7 @@ export default function ForgetPassword() {
             isLoading(false)
         }
     });
+
 
 
     return (
