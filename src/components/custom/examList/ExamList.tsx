@@ -29,7 +29,7 @@ export default function ExamList({ searchParams }: { searchParams: { id: string;
             }
         }
         getData()
-    }, [])
+    }, [id])
 
     // fetch question on the exam
     async function getExamQuestions(id: string) {
@@ -59,7 +59,7 @@ export default function ExamList({ searchParams }: { searchParams: { id: string;
                     <div key={exam._id}>
                         <p className=" fs-6 fw-semibold">{exam.title}</p>
                         <div className="row">
-                            <div className="col-md-12 me-5 bg-white p-4 rounded-4 quizes-shadow d-flex justify-content-between mb-3">
+                            <div className="col-lg-12 me-5 bg-white p-4 rounded-4 quizes-shadow d-flex justify-content-between mb-3">
                                 <div>
                                     <div >
                                         <h5 className="">{exam.title.split(' ').slice(0, 1).join(' ')}</h5>

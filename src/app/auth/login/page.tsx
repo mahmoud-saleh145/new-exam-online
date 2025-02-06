@@ -12,7 +12,7 @@ import { useState } from 'react';
 import LoadingPage from '@/components/common/LoadingPage';
 
 
-export default function login() {
+export default function Login() {
 
 
     const [show, setShow] = useState(false)
@@ -23,12 +23,12 @@ export default function login() {
         setShow(!show)
     }
 
-    let validationSchema = yup.object({
+    const validationSchema = yup.object({
         email: yup.string().email().required(),
         password: yup.string().required(),
     });
 
-    let formik = useFormik({
+    const formik = useFormik({
         initialValues: {
             email: '',
             password: '',
@@ -36,7 +36,7 @@ export default function login() {
         validationSchema,
         onSubmit: async function (values) {
             isLoading(true)
-            let user = await signIn("credentials", {
+            const user = await signIn("credentials", {
                 email: values.email,
                 password: values.password,
                 redirect: false

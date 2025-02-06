@@ -40,7 +40,7 @@ export default function QuizCard() {
                     }
                 }}>
                     <div key={subject[index]._id} className="position-relative cursor-pointer" >
-                        <img src={subject[index].icon} className="w-100"></img>
+                        <img src={subject[index].icon} className="w-100" alt='subject image'></img>
                         <h5 className="position-absolute title w-75 text-white p-4">{subject[index].name}</h5>
                     </div>
                 </Link >

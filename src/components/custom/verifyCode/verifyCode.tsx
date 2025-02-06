@@ -1,10 +1,8 @@
 'use client'
-import Link from 'next/link';
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
-
 import { signIn } from 'next-auth/react';
 import * as yup from "yup"
 import { useFormik } from 'formik'
@@ -16,20 +14,14 @@ import NewPassword from './../newPassword/NewPassword';
 
 export default function VerifyCode(props: any) {
 
+    const email = props.email
 
 
     const [data, setData] = useState('')
     const [loading, isLoading] = useState(false)
     const [error, setError] = useState('')
 
-    let validationSchema = yup.object({
-        resetCode: yup.string().required(),
 
-    });
-
-
-
-    const email = props.email
     async function resendCode(email: any) {
         isLoading(true)
         const res = await fetch('https://exam.elevateegy.com/api/v1/auth/forgotPassword', {
@@ -39,12 +31,17 @@ export default function VerifyCode(props: any) {
             headers: { ...JSON_HEADER },
             method: 'POST'
         })
-        const result = await res.json()
+        // const result = await res.json()
         isLoading(false)
     }
 
+    const validationSchema = yup.object({
+        resetCode: yup.string().required(),
 
-    let formik = useFormik({
+    });
+
+
+    const formik = useFormik({
         initialValues: {
             resetCode: '',
 
@@ -92,7 +89,7 @@ export default function VerifyCode(props: any) {
                                         value={formik.values.resetCode}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        name='resetCode' type="text" className={`form-control input-shadow p-2  ${formik.touched.resetCode && formik.values.resetCode === '' || formik.errors.resetCode ? "border-danger" : ""}`} placeholder='Enter reset Code' ></input>
+                                        name='resetCode' type="text" className={`form-control input-shadow p-2  ${formik.touched.resetCode && formik.values.resetCode === '' || formik.errors.resetCode ? "border-danger" : " "}`} placeholder='Enter reset Code' ></input>
                                     {formik.errors.resetCode && formik.touched.resetCode && (<div className="alert alert-danger  py-0 position-absolute ">{formik.errors.resetCode}</div>)}
                                 </div>
 

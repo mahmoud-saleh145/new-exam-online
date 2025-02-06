@@ -15,13 +15,13 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
             <main className="row align-items-center overflow-hidden gx-0 ">
 
                 {/* main image in auth pages */}
-                <section className="col-md-6 ">
+                <section className="col-lg-6 ">
                     <div className=" mainframe ">
                         <Image priority src={img} alt=" main image" />
                     </div>
                 </section>
 
-                <section className="col-md-6 col-sm-12 col-12 ">
+                <section className="col-lg-6 col-sm-12 col-12 ">
 
                     <div className='d-flex gap-3 justify-content-end p-5 position-absolute end-0 top-0 m-3'>
                         <span><p>English<IoMdArrowDropdown /></p></span>

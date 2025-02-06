@@ -20,11 +20,11 @@ export default function ForgetPassword() {
     const [loading, isLoading] = useState(false)
     const [error, setError] = useState('')
 
-    let validationSchema = yup.object({
+    const validationSchema = yup.object({
         email: yup.string().email().required(),
     });
 
-    let formik = useFormik({
+    const formik = useFormik({
         initialValues: {
             email: ''
         },

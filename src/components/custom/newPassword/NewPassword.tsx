@@ -1,12 +1,9 @@
 'use client'
-import Link from 'next/link';
-
 import { FcGoogle } from "react-icons/fc";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { VscEye } from "react-icons/vsc";
-import { IoMdArrowDropdown } from "react-icons/io";
 import { signIn } from 'next-auth/react';
 import * as yup from 'yup';
 import { useFormik } from 'formik'
@@ -20,13 +17,14 @@ export default function NewPassword() {
     const router = useRouter();
     const [loading, isLoading] = useState(false)
     const [error, setError] = useState('')
+    const [show, setShow] = useState(false)
 
-    let validationSchema = yup.object({
+    const validationSchema = yup.object({
         email: yup.string().email().required(),
         newPassword: yup.string().required(),
     });
 
-    let formik = useFormik({
+    const formik = useFormik({
         initialValues: {
             email: '',
             newPassword: '',
@@ -55,7 +53,7 @@ export default function NewPassword() {
 
     });
 
-    const [show, setShow] = useState(false)
+
     const showPassword = () => {
         setShow(!show)
     }

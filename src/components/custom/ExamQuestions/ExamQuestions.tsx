@@ -91,7 +91,7 @@ export default function ExamQuestions({ question }: ExamQuestionsProps) {
                                         <div>
                                             <div className="row flex-column gy-3 gy-3 mx-1 mb-4 ">
                                                 {/* mapping for answers */}
-                                                {Array.isArray(questions.answers) && questions.answers.map((answer: Answer, i: number) => (
+                                                {Array.isArray(questions.answers) && questions.answers.map((answer: Answer) => (
                                                     <div className='answer-background p-3 rounded-3' key={answer.key}>
                                                         <input
                                                             className="form-check-input me-2"

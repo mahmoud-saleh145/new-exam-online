@@ -15,13 +15,14 @@ import LoadingPage from '@/components/common/LoadingPage';
 
 
 
-export default function register() {
+export default function Register() {
 
     const router = useRouter();
     const [loading, isLoading] = useState(false)
     const [error, setError] = useState('')
+    const [show, setShow] = useState(false)
 
-    let validationSchema = yup.object({
+    const validationSchema = yup.object({
         username: yup.string().required().min(3).max(20),
         firstName: yup.string().required().min(3).max(20),
         lastName: yup.string().required().min(3).max(20),
@@ -31,7 +32,7 @@ export default function register() {
         phone: yup.string().required(),
     });
 
-    let formik = useFormik({
+    const formik = useFormik({
         initialValues: {
             username: "",
             firstName: "",
@@ -66,7 +67,7 @@ export default function register() {
     });
 
 
-    let [show, setShow] = useState(false)
+
     const showPassword = () => {
         setShow(!show)
     }
