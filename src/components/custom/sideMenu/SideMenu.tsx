@@ -20,8 +20,9 @@ export default function SideMenu() {
 
     // logout from api and delete token from cookies  
     async function logout() {
+    
         setLoading(true)
-        const res = await fetch('http://localhost:3000/api/logout')
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/logout`)
         const data = await res.json()
         if (data.message == 'success') {
             signOut()

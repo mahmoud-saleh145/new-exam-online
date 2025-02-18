@@ -15,7 +15,7 @@ export default function ExamList({ searchParams }: { searchParams: { id: string;
         // fetch exams on subject
         async function getData() {
             isLoading(true)
-            const res = await fetch(`http://localhost:3000/api/exams?id=${id}`)
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/exams?id=${id}`)
 
             const data: APIResponse<PaginatedResponse<Exams[]>> = await res.json()
 
@@ -27,6 +27,8 @@ export default function ExamList({ searchParams }: { searchParams: { id: string;
                 isLoading(false)
                 throw new Error('Failed to fetch data')
             }
+            isLoading(false)
+
         }
         getData()
     }, [id])
@@ -34,7 +36,7 @@ export default function ExamList({ searchParams }: { searchParams: { id: string;
     // fetch question on the exam
     async function getExamQuestions(id: string) {
         isLoading(true)
-        const res = await fetch(`http://localhost:3000/api/questions?id=${id}`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/questions?id=${id}`)
 
         const data: APIResponse<QuestionResponse<Questions[]>> = await res.json()
 
@@ -48,6 +50,7 @@ export default function ExamList({ searchParams }: { searchParams: { id: string;
             throw new Error('Failed to fetch data')
         }
         isLoading(false)
+        console.log(data)
     }
 
     return (

@@ -2,11 +2,10 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 
-const authPages = ["/auth/login", "/auth/register", "/auth/forgetPassword", "/reset-password", "/verify-email"]
+const authPages = ["/auth/login", "/auth/register", "/auth/forgetPassword"]
 export default async function middleware(request: NextRequest) {
     const token = await getToken({ req: request })
     const url = request.nextUrl.pathname
-    // console.log(token);
 
 
     // Redirect to home page if use authenticated or trying to access auth pages

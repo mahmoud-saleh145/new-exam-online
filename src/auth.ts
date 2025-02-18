@@ -11,8 +11,8 @@ import AppError from "./lib/utils/app-error";
 
 export const options: NextAuthOptions = {
     pages: {
-        signIn: '/login',
-        error: '/login',
+        signIn: '/auth/login',
+        error: '/auth/register',
         signOut: '/auth/signout',
     },
     providers: [

@@ -14,7 +14,8 @@ export default function QuizCard() {
     useEffect(() => {
         // fetch subjects
         async function getData() {
-            const res = await fetch('http://localhost:3000/api/subjects')
+
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/subjects`)
             const data: APIResponse<PaginatedResponse<Subjects[]>> = await res.json()
             if (!('code' in data)) {
                 setSubject(data.subjects)
